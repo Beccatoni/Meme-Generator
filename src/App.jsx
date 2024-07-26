@@ -54,8 +54,30 @@ function App(props) {
 
 
 const squareElements = squares.map(square => (
-  <Box on={square.on}  key={square.id}/>
+  <Box on={square.on}  key={square.id} id={square.id} toggle={toggle}/>
 ))
+
+function toggle(id){
+  setSquares(prevSquares => {
+    return prevSquares.map(square => {
+      return square.id === id? {...square, on: !square.on}:square 
+    })
+    // const newSquares = []
+    // for (let i = 0; i < prevSquares.length; i++) {
+    //   const  currentSquare = prevSquares[i];
+    //   if ( currentSquare.id === id) {
+    //     const updatedSquare ={
+    //       ...currentSquare,
+    //       on: !currentSquare.on
+    //     }
+    //     newSquares.push(updatedSquare)
+    //   }else{
+    //     newSquares.push(currentSquare)
+    //   }
+    // }
+    // return newSquares
+  })
+}
 
 
   return (
@@ -90,7 +112,7 @@ const squareElements = squares.map(square => (
 
      {/* boxes  */}
 
-    <section className='flex justify-center items-center gap-3 my-6 max-w-[30%] flex-wrap mx-auto'>
+    <section  className='flex justify-center items-center gap-3 my-6 max-w-[30%] flex-wrap mx-auto'>
      
         {squareElements}
     </section>
