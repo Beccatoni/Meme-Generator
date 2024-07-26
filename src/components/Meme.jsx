@@ -23,7 +23,7 @@ const [meme, setMeme] = useState( {
     }))
   }
   return (
-    <div className=" flex flex-col items-center">
+    <div className=" flex flex-col items-center ">
       <div  className="flex  flex-col gap-5 w-full items-center justify-center text-xl py-9">
         <div className="flex gap-16">
           <div className="flex flex-col gap-2">
