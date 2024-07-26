@@ -7,8 +7,11 @@ import Meme from './components/Meme'
 import Count from './components/Count'
 import Star from './components/Star'
 import contacti from './assets/contacti.png'
+import boxes from './boxes'
+import Box from './components/Box'
 
-function App() {
+
+function App(props) {
  
 
   const [count, setCount] = useState(0)
@@ -19,6 +22,9 @@ function App() {
     email: "itsmyrealname@example.com",
     isFavorite: true
   })
+  const [squares, setSquares] = useState(boxes)
+
+
 
   function add(){
       setCount(prevCount => prevCount + 1)
@@ -37,6 +43,21 @@ function App() {
   }
 
   // console.log("App component rendered")
+
+//square elements from the boxes  and styling
+
+// const darkModeTrueorFalse = props.darkMode ? "#222222" : "#cccccc"
+// const styles = {
+//   backgroundColor : props.darkMode ? "#222222" : "#cccccc",
+//   borderRadius: "10px"
+// }
+
+
+const squareElements = squares.map(square => (
+  <Box on={square.on}  key={square.id}/>
+))
+
+
   return (
     <>
   
@@ -51,6 +72,8 @@ function App() {
      </div>
      </div>
 
+
+{/* passing data from parent to child */}
      <div className='flex justify-center items-center my-12'>
        <article className=' flex flex-col gap-3 bg-slate-100 shadow-xl border border-slate-500 h-[22rem] w-[15rem] rounded-lg p-3'>
         <img src={contacti} alt="" />
@@ -63,7 +86,14 @@ function App() {
 
        </article>
      </div>
-    
+
+
+     {/* boxes  */}
+
+    <section className='flex justify-center items-center gap-3 my-6 max-w-[30%] flex-wrap mx-auto'>
+     
+        {squareElements}
+    </section>
 
 
     </>
