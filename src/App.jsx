@@ -9,6 +9,8 @@ import Star from './components/Star'
 import contacti from './assets/contacti.png'
 import boxes from './boxes'
 import Box from './components/Box'
+import Form from '../src/components/Form'
+import Signup from './components/Signup'
 
 
 function App(props) {
@@ -117,6 +119,13 @@ function toggle(id){
         {squareElements}
     </section>
 
+
+
+<Form/>
+<br />
+<section  className='bg-indigo-400 h-screen w-screen flex p-9 items-center justify-center'>
+<Signup/>
+</section>
 
     </>
   )
