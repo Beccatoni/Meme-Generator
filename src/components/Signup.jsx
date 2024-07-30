@@ -12,22 +12,31 @@ const Signup = () => {
   });
 
   console.log(formData.Newsletter)
+
   function handleChange(event) {
     const { name, value, checked, type } = event.target;
+
     setFormData((prevFormData) => ({
       ...prevFormData,
-      [name]: type === "Newsletter " ? checked : value,
+      [name]: type === "checkbox" ? checked : value,
     }));
   }
 
-  function handleSubmit(eventg) {
+  function handleSubmit(event) {
     event.preventDefault()
+    if(formData.Password !== formData.ConfirmPassword){
+        alert("Passwords should match!")
+    }
+    else{
+      
+        alert("successfully logged in");
+    }
     console.log(formData);
   }
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-[30rem] h-[28rem] bg-indigo-200 flex flex-col justify-center rounded-md gap-5 px-10 py-10  "
+      className="w-[30rem] h-[28rem] bg-indigo-200 flex flex-col justify-center rounded-md gap-5 px-10 py-10  shadow-xl "
     >
       <input
         type="email"
